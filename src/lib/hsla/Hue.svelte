@@ -1,5 +1,6 @@
 <script>
-  /** Specify the value of the slider */
+  import
+    /** Specify the value of the slider */
   export let value = 0;
 
   /** Set the maximum slider value */
@@ -120,6 +121,7 @@
       dispatch("change", value);
     }
   }
+  
 </script>
 
 <svelte:window
@@ -130,7 +132,7 @@
   on:touchcancel="{stopHolding}"
 />
 
-<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+
 <div
   class:bx--form-item="{true}"
   {...$$restProps}
