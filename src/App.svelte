@@ -2,7 +2,10 @@
   import svelteLogo from './assets/svelte.svg'
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
-  import { Slider } from './lib/Slider.svelte'
+  import { Slider } from "carbon-components-svelte";
+  import "carbon-components-svelte/css/all.css";
+  import { SliderSkeleton } from "carbon-components-svelte";
+  // import { Slider } from './lib/Slider.svelte'
 </script>
 
 <main>
@@ -17,9 +20,16 @@
   <div class="card">
     <Counter />
   </div>
-  <div class="slider">
-    <Slider labelText="Instances"  value={0} />
-
+  <div class="slider-container">
+    <div class="slider">
+      <Slider labelText="Hue" fullWidth min="0" max="360"  value={0} />
+    </div>
+    <div class="slider">
+      <Slider labelText="Saturation" fullWidth value={0} />
+    </div>
+    <div class="slider">
+      <Slider labelText="Lightness" fullWidth value={0} />
+    </div>
   </div>
   <p>
     Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
