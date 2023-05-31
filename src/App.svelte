@@ -1,73 +1,42 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
-  import Counter from './lib/Counter.svelte'
-  import Picker from './lib/Picker.svelte'
-  import Text from './lib/Text.svelte'
-  // import { Slider } from "carbon-components-svelte";
-  // import "carbon-components-svelte/css/all.css";
-  // import { SliderSkeleton } from "carbon-components-svelte";
-  // import { Slider } from './lib/Slider.svelte'
+  import FeedbackList from './lib/feedbackList.svelte'
+  import FeedbackForm from './lib/feedbackForm.svelte'
+  import FeedbackStats from './lib/feedbackStats.svelte'
+  let feedback = [
+    {
+      id: 1,
+      rating: 10,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum dignissimos unde, consequuntur voluptate autem explicabo corporis vero distinctio, iure, consequatur dolorem tempore animi tenetur! Assumenda ab odio, expedita nisi.'
+    },
+    {
+      id: 2,
+      rating: 9,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum dignissimos unde, consequuntur voluptate autem explicabo corporis vero distinctio, iure, consequatur dolorem tempore animi tenetur! Assumenda ab odio, expedita nisi.'
+    },
+    {
+      id: 3,
+      rating: 8,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum dignissimos unde, consequuntur voluptate autem explicabo corporis vero distinctio, iure, consequatur dolorem tempore animi tenetur! Assumenda ab odio, expedita nisi.'
+    },
+    {
+      id: 4,
+      rating: 7,
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat cum dignissimos unde, consequuntur voluptate autem explicabo corporis vero distinctio, iure, consequatur dolorem tempore animi tenetur! Assumenda ab odio, expedita nisi.'
+    }
+    ]
+  
+  const deleteFeedback = (e) => {
+    const itemId = e.detail
+    feedback = feedback.filter((item) => item.id != itemId)
+  }
+  
+  $: count = feedback.length
+  $: average = feedback.reduce((a, {rating}) => a + rating, 0) / feedback.length
 </script>
 
-<main>
-
-  <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-    <img src={viteLogo} class="logo" alt="Vite Logo" />
-  </a>
-  <a href="https://svelte.dev" target="_blank" rel="noreferrer">
-    <img src={svelteLogo} class="logo svelte" alt="Svelte Logo" />
-  </a>
-  <h1>Vite + SvelteKit</h1>
-  <div class="card">
-    <Counter />
-  </div>
-  <div class="color-picker">
-    <Picker />
-    <Text />
-  </div>
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+  <h3>Hello</h3>
+<main class="container">
+  <FeedbackForm />
+  <FeedbackStats {count} {average} />
+  <FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
 </main>
-
-<style>
-  main {
-    height: 100vh;
-    width: 100vw;
-    background-color: #ffe66b;
-  }
-
-
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
-  
-  .color-picker{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-  }
-  
-  
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-  }
-
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-    background-color: greenyellow;
-  }
-
-  .read-the-docs {
-    color: #888;
-  }
-</style>
