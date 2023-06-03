@@ -1,0 +1,88 @@
+---
+components: ["OrderedList", "ListItem"]
+---
+
+<script>
+  import { InlineNotification, OrderedList, ListItem, Link } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+<InlineNotification svx-ignore lowContrast title="Tip:" kind="info" hideCloseButton>
+  <div class="body-short-01">
+    Consider using the <Link href="/components/RecursiveList#ordered">RecursiveList</Link> component for rendering tree structured data.
+   </div>
+</InlineNotification>
+
+## Default
+
+<OrderedList>
+  <ListItem>Ordered list item</ListItem>
+  <ListItem>Ordered list item</ListItem>
+  <ListItem>Ordered list item</ListItem>
+</OrderedList>
+
+## With links
+
+<OrderedList>
+  <ListItem>
+    <Link href="#">Ordered list item</Link>
+  </ListItem>
+  <ListItem>
+    <Link href="#">Ordered list item</Link>
+  </ListItem>
+  <ListItem>
+    <Link href="#">Ordered list item</Link>
+  </ListItem>
+</OrderedList>
+
+## Nested
+
+<OrderedList>
+  <ListItem>
+    Ordered list level 1
+    <OrderedList nested>
+      <ListItem>Ordered list level 2</ListItem>
+      <ListItem>
+        Ordered list level 3
+        <OrderedList nested>
+          <ListItem>Ordered list level 3</ListItem>
+          <ListItem>Ordered list level 3</ListItem>
+        </OrderedList>
+      </ListItem>
+    </OrderedList>
+  </ListItem>
+  <ListItem>Ordered list level 1</ListItem>
+  <ListItem>Ordered list level 1</ListItem>
+</OrderedList>
+
+## Native list styles
+
+Use the `native` attribute to enable default browser list styles. This is useful for large lists (i.e., 1000 or more items) where the list number may overlap with the list item text.
+
+<OrderedList native>
+  <ListItem>
+    Ordered list level 1
+    <OrderedList nested>
+      <ListItem>Ordered list level 2</ListItem>
+      <ListItem>
+        Ordered list level 3
+        <OrderedList nested>
+          <ListItem>Ordered list level 3</ListItem>
+          <ListItem>Ordered list level 3</ListItem>
+        </OrderedList>
+      </ListItem>
+    </OrderedList>
+  </ListItem>
+  <ListItem>Ordered list level 1</ListItem>
+  <ListItem>Ordered list level 1</ListItem>
+</OrderedList>
+
+## Expressive styles
+
+Set `expressive` to `true` to use Carbon's expressive typesetting.
+
+<OrderedList expressive>
+  <ListItem><Link size="lg" href="#">Ordered list item</Link></ListItem>
+  <ListItem>Ordered list item</ListItem>
+  <ListItem>Ordered list item</ListItem>
+</OrderedList>

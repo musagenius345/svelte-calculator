@@ -1,0 +1,26 @@
+<script>
+  import {
+    FluidForm,
+    TextInput,
+    PasswordInput,
+  } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+## Fluid form
+
+Note that the `inline` input variants cannot be used within a `FluidForm`.
+
+<FluidForm>
+  <TextInput labelText="User name" placeholder="Enter user name..." required />
+  <PasswordInput
+    required
+    type="password"
+    labelText="Password"
+    placeholder="Enter password..."
+  />
+</FluidForm>
+
+## Invalid state
+
+<FileSource src="/framed/FluidForm/FluidFormInvalid" />

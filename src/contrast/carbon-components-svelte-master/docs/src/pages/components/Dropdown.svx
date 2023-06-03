@@ -1,0 +1,114 @@
+---
+components: ["Dropdown", "DropdownSkeleton"]
+---
+
+<script>
+  import { Dropdown, DropdownSkeleton, InlineNotification } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+`Dropdown` is keyed for performance reasons.
+
+<InlineNotification svx-ignore lowContrast title="Note:" kind="info" hideCloseButton>
+  <div class="body-short-01">Every <code>items</code> object must have a unique "id" property.</div>
+</InlineNotification>
+
+## Default
+
+<Dropdown titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Custom slot
+
+Override the default slot to customize the display of each item. Access the item and index through the `let:` directive.
+
+<FileSource src="/framed/Dropdown/DropdownSlot" />
+
+## Hidden label
+
+<Dropdown hideLabel titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Format item display text
+
+Use the `itemToString` prop to format the display of individual items.
+
+<Dropdown itemToString={item => {
+  return item.text + ' (' + item.id +')'
+}} titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Multiple dropdowns
+
+<FileSource src="/framed/Dropdown/MultipleDropdown" />
+
+## Top direction
+
+Set `direction` to `"top"` for the dropdown menu to appear above the input.
+
+<Dropdown direction="top" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Light variant
+
+<Dropdown light titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Inline variant
+
+<Dropdown type="inline" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Extra-large size
+
+<Dropdown size="xl" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Small size
+
+<Dropdown size="sm" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Invalid state
+
+<Dropdown invalid invalidText="Secondary contact method must be different from the primary contact" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Warning state
+
+<Dropdown warn warnText="This contact method is not associated with your account" titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Disabled state
+
+<Dropdown disabled titleText="Contact" selectedId="0" items="{[{id: "0", text: "Slack"},
+  {id: "1", text: "Email"},
+  {id: "2", text: "Fax"}]}" />
+
+## Disabled items
+
+Use the `disabled` property in the `items` prop to disable specific items.
+
+<Dropdown
+  selectedId="0"
+  titleText="Contact"
+  items={[
+    { id: "0", text: "Slack" },
+    { id: "1", text: "Email", disabled: true },
+    { id: "2", text: "Fax" },
+  ]}
+/>
+
+## Skeleton
+
+<DropdownSkeleton />

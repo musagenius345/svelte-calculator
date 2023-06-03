@@ -1,0 +1,98 @@
+---
+components: ["DatePicker", "DatePickerInput", "DatePickerSkeleton"]
+---
+
+<script>
+  import { DatePicker, DatePickerSkeleton, DatePickerInput, InlineNotification } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+Carbon uses the zero dependency [flatpickr](https://github.com/flatpickr/flatpickr) library for its underlying calendar implementation.
+
+Set `datePickerType` to `"single"` or `"range"` for the calendar functionality.
+
+Specify [flatpickr options](https://flatpickr.js.org/options/) through the `flatpickrProps` prop.
+
+<InlineNotification svx-ignore lowContrast title="Note:" kind="info" hideCloseButton>
+  <div class="body-short-01">
+    If using Rollup, specify <strong>inlineDynamicImports: true</strong> in your <strong>rollup.config.js</strong>.
+  </div>
+</InlineNotification>
+
+## Single
+
+By default, the `flatpickr` option `static` is set to `true` so that the calendar is positioned inside the wrapper and next to the input element. This is required for the calendar position to work inside a [Modal](/components/Modal).
+
+Set `flatpickrProps.static` to `false` to opt out of this behavior.
+
+<FileSource src="/framed/DatePicker/DatePickerSingle" />
+
+## Range
+
+Set `datePickerType` to `"range"` for the range variant.
+
+<FileSource src="/framed/DatePicker/DatePickerRange" />
+
+## DatePicker in a modal
+
+<FileSource src="/framed/DatePicker/DatePickerModal" />
+
+## Simple
+
+By default, the "simple" date picker does not have a dropdown calendar.
+
+<DatePicker>
+  <DatePickerInput labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## With helper text
+
+<DatePicker>
+  <DatePickerInput labelText="Date of birth" helperText="Example: 01/12/1990" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Hidden label
+
+<DatePicker>
+  <DatePickerInput hideLabel labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Light variant
+
+<DatePicker light>
+  <DatePickerInput labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Extra-large size
+
+<DatePicker>
+  <DatePickerInput size="xl" labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Small size
+
+<DatePicker>
+  <DatePickerInput size="sm" labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Invalid state
+
+<DatePicker>
+  <DatePickerInput invalid invalidText="Invalid date" labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Warning state
+
+<DatePicker>
+  <DatePickerInput warn warnText="This info will not be stored" labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Disabled state
+
+<DatePicker>
+  <DatePickerInput disabled labelText="Date of birth" placeholder="mm/dd/yyyy" />
+</DatePicker>
+
+## Skeleton
+
+<DatePickerSkeleton />

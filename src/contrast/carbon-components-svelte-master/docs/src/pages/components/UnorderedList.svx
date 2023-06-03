@@ -1,0 +1,66 @@
+---
+components: ["UnorderedList", "ListItem"]
+---
+
+<script>
+  import { InlineNotification, UnorderedList, ListItem, Link } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+<InlineNotification svx-ignore lowContrast title="Tip:" kind="info" hideCloseButton>
+  <div class="body-short-01">
+   Consider using the <Link href="/components/RecursiveList#unordered">RecursiveList</Link> component for rendering tree structured data.
+  </div>
+</InlineNotification>
+
+## Default
+
+<UnorderedList>
+  <ListItem>Unordered list item</ListItem>
+  <ListItem>Unordered list item</ListItem>
+  <ListItem>Unordered list item</ListItem>
+</UnorderedList>
+
+## With links
+
+<UnorderedList>
+  <ListItem>
+    <Link href="#">Unordered list item</Link>
+  </ListItem>
+  <ListItem>
+    <Link href="#">Unordered list item</Link>
+  </ListItem>
+  <ListItem>
+    <Link href="#">Unordered list item</Link>
+  </ListItem>
+</UnorderedList>
+
+## Nested
+
+<UnorderedList>
+  <ListItem>
+    Unordered list level 1
+    <UnorderedList nested>
+      <ListItem>Unordered list level 2</ListItem>
+      <ListItem>
+        Unordered list level 3
+        <UnorderedList nested>
+          <ListItem>Unordered list level 3</ListItem>
+          <ListItem>Unordered list level 3</ListItem>
+        </UnorderedList>
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>Unordered list level 1</ListItem>
+  <ListItem>Unordered list level 1</ListItem>
+</UnorderedList>
+
+## Expressive styles
+
+Set `expressive` to `true` to use Carbon's expressive typesetting.
+
+<UnorderedList expressive>
+  <ListItem><Link size="lg" href="#">Unordered list item</Link></ListItem>
+  <ListItem>Unordered list item</ListItem>
+  <ListItem>Unordered list item</ListItem>
+</UnorderedList>

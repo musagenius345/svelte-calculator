@@ -13,45 +13,39 @@
     color: #fff;
     border: 0;
     border-radius: 8px;
-    width: 100px;
-    height: 40px;
+    color: #fff;
+    width: 10rem;
+    height: 4rem;
     cursor: pointer;
+    font-size: .8em;
   }
 
-  .primary{
-    background-color: #202142;
-    
+  .primary {
+    background-color: #FFD300;
+    color: #222222;
   }
-  
-  .secondary{
+
+  .secondary {
     background: #ff6a95;
   }
-  
-  button:hover{
-    -webkit-transform: scale(0.98);
-    -moz-transform: scale(0.98);
-    -ms-transform: scale(0.98);
-    -o-transform: scale(0.98);
+
+  button:hover {
     transform: scale(0.98);
-    
     opacity: 0.9;
   }
-  
+
   button:disabled{
-    background-color: #ccc;
+    background-color: #cccccc;
     color: #333;
-    cursor: auto;
-    
-    &:hover{
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1);
-    
-    opacity: 1;
-    }
+    cursor:auto;
   }
+
+  button:disabled:hover{
+    transform:scale(1);
+    opacity: 1;
+  }
+
+
   
   
 </style>

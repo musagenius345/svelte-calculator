@@ -1,0 +1,23 @@
+<script>
+  import { InlineLoading } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+## Default
+
+<InlineLoading />
+
+## With description
+
+<InlineLoading description="Loading metrics..." />
+
+## Status states
+
+<InlineLoading status="active" description="Submitting..." />
+<InlineLoading status="inactive" description="Cancelling..." />
+<InlineLoading status="finished" description="Success" />
+<InlineLoading status="error" description="An error occurred" />
+
+## UX example
+
+<FileSource src="/framed/InlineLoading/InlineLoadingUx" />

@@ -1,0 +1,162 @@
+<script>
+  import { MultiSelect, InlineNotification } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+`MultiSelect` is keyed for performance reasons.
+
+<InlineNotification svx-ignore lowContrast title="Note:" kind="info" hideCloseButton>
+  <div class="body-short-01">Every <code>items</code> object must have a unique "id" property.</div>
+</InlineNotification>
+
+## Default
+
+By default, items will be ordered alphabetically based on the `item.text` value. To prevent this, see [#no-alphabetical-ordering](#no-alphabetical-ordering).
+
+<MultiSelect titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Custom slot
+
+Override the default slot to customize the display of each item. Access the item and index through the `let:` directive.
+
+<FileSource src="/framed/MultiSelect/MultiSelectSlot" />
+
+## No alphabetical ordering
+
+To prevent alphabetical item ordering, pass an empty function to the `sortItem` prop.
+
+<MultiSelect titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}" 
+    sortItem="{() => {}}"
+  />
+
+## Filterable
+
+`$$restProps` are spread to the underlying input element.
+
+<MultiSelect spellcheck="false" filterable titleText="Contact" placeholder="Filter contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Initial selected items
+
+To select (or bind) items, pass an array of item ids to `selectedIds`.
+
+<MultiSelect selectedIds="{["0", "1"]}" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}" 
+  />
+
+## Multiple multi-select dropdowns
+
+<FileSource src="/framed/MultiSelect/MultipleMultiSelect" />
+
+## Format item display text
+
+Use the `itemToString` prop to format the display of individual items.
+
+<MultiSelect itemToString={item => {
+  return item.text + ' (' + item.id +')'
+}} titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+    sortItem="{() => {}}"
+  />
+
+## Top direction
+
+Set `direction` to `"top"` for the dropdown menu to appear above the input.
+
+<MultiSelect direction="top" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Hidden label
+
+<MultiSelect titleText="Contact" label="Select contact methods..." hideLabel
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Light variant
+
+<MultiSelect light titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Inline variant
+
+<MultiSelect type="inline" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Extra-large size
+
+<MultiSelect size="xl" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Small size
+
+<MultiSelect size="sm" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Invalid state
+
+<MultiSelect invalid invalidText="A contact method is required" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Warning state
+
+<MultiSelect warn warnText="One or more contact methods are not associated with your account" titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Disabled state
+
+<MultiSelect disabled titleText="Contact" label="Select contact methods..."
+    items="{[{id: "0", text: "Slack"},
+    {id: "1", text: "Email"},
+    {id: "2", text: "Fax"}]}"
+  />
+
+## Disabled items
+
+Use the `disabled` property in the `items` prop to disable specific items.
+
+<MultiSelect
+  titleText="Contact"
+  label="Select contact methods..."
+  items={[
+    { id: "0", text: "Slack" },
+    { id: "1", text: "Email", disabled: true },
+    { id: "2", text: "Fax" },
+  ]}
+/>

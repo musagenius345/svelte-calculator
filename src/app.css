@@ -1,71 +1,16 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
-  color: #222222;
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
+  font-size: 1.6rem;
   box-sizing: border-box;
   margin: 0;
   display: flex;
   place-items: center;
-  min-height: 100vh;
-  background-color: #ffe66b ;
+
+
   color: #222222;
-  
-}
+  padding: 0 auto;
 
-.container {
-  max-width: 800px;
-  margin: 5px auto;
-  
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 2rem;
-  /* text-align: center; */
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    /* color: #747bff; */
-  }
-  button {
-    /* background-color: #f9f9f9; */
-  }
 }

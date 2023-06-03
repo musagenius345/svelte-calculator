@@ -1,0 +1,50 @@
+---
+components: ["Slider", "SliderSkeleton"]
+---
+
+<script>
+  import { Slider, SliderSkeleton } from "carbon-components-svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+## Default
+
+<Slider labelText="Instances" value={0} />
+
+## Full width
+
+Set `fullWidth` to `true` for the slider to span the full width of its containing element.
+
+<Slider labelText="Instances" fullWidth value={0} />
+
+## Hidden text input
+
+<Slider labelText="Instances" hideTextInput value={0} />
+
+## Custom minimum, maximum values
+
+<Slider labelText="Runtime memory (MB)" min={10} max={990} maxLabel="990 MB" value={100} />
+
+## Custom step value
+
+<Slider labelText="Runtime memory (MB)" min={10} max={990} maxLabel="990 MB" value={100} step={10} />
+
+## Light variant
+
+<Slider light labelText="Runtime memory (MB)" min={10} max={990} maxLabel="990 MB" value={100}  step={10} />
+
+## Invalid state
+
+<Slider invalid labelText="Runtime memory (MB)" min={10} max={990} maxLabel="990 MB" value={100}  step={10} />
+
+## Disabled state
+
+<Slider disabled labelText="Runtime memory (MB)" min={10} max={990} maxLabel="990 MB" value={100}  step={10} />
+
+## Skeleton
+
+<SliderSkeleton />
+
+## Skeleton (hidden label)
+
+<SliderSkeleton hideLabel />

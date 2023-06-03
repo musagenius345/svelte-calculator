@@ -1,0 +1,103 @@
+---
+components: ["OverflowMenu", "OverflowMenuItem"]
+---
+
+<script>
+  import { OverflowMenu, OverflowMenuItem } from "carbon-components-svelte";
+  import Add from "carbon-icons-svelte/lib/Add.svelte";
+  import Preview from "../../components/Preview.svelte";
+</script>
+
+## Default
+
+<OverflowMenu>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Flipped
+
+Set `flipped` to `true` for the menu to be positioned to the left of the button.
+
+<OverflowMenu flipped>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Menu direction top
+
+<OverflowMenu flipped direction="top">
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Light variant
+
+<OverflowMenu light>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Extra-large size
+
+<OverflowMenu size="xl">
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Small size
+
+<OverflowMenu size="sm">
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Custom primary focus
+
+By default, the first overflow menu item is focused when opening the dropdown.
+
+<OverflowMenu>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem primaryFocus danger text="Delete service" />
+</OverflowMenu>
+
+## Custom trigger icon
+
+<OverflowMenu icon={Add}>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Custom trigger slot
+
+<OverflowMenu style="width: auto;">
+  <div slot="menu" style="padding: 1rem; color: red;">Custom trigger</div>
+  <OverflowMenuItem text="Manage credentials" />
+  <OverflowMenuItem href="https://cloud.ibm.com/docs/api-gateway/" text="API documentation" />
+  <OverflowMenuItem danger text="Delete service" />
+</OverflowMenu>
+
+## Disabled items
+
+Disable menu items by setting `disabled` to `true`.
+
+<OverflowMenu>
+  <OverflowMenuItem text="Create key" />
+  <OverflowMenuItem text="Import key" />
+  <OverflowMenuItem text="Revoke key" disabled />
+  <OverflowMenuItem text="Duplicate key" disabled />
+  <OverflowMenuItem
+    hasDivider
+    href="https://cloud.ibm.com/docs/api-gateway/"
+    text="API documentation"
+  />
+  <OverflowMenuItem hasDivider danger text="Delete service" />
+</OverflowMenu>

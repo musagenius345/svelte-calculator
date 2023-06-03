@@ -25,18 +25,49 @@
     }
     ]
   
-  const deleteFeedback = (e) => {
-    const itemId = e.detail
-    feedback = feedback.filter((item) => item.id != itemId)
+  
+  
+  const addFeedback = (e) => {
+    const newFeedback = e.detail
+    feedback= [newFeedback, ...feedback]
   }
   
-  $: count = feedback.length
-  $: average = feedback.reduce((a, {rating}) => a + rating, 0) / feedback.length
+  
 </script>
 
-  <h3>Hello</h3>
 <main class="container">
-  <FeedbackForm />
-  <FeedbackStats {count} {average} />
-  <FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
+  <FeedbackForm on:add-feedback={addFeedback} />
+  <FeedbackStats />
+  <FeedbackList  />
 </main>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:global(body) {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #222222;
+  background-color: #ffe66b ;
+  overflow-x: hidden;
+  
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: 10rem auto;
+  padding: 0 4rem;
+}
+
+  
+</style>

@@ -1,0 +1,9 @@
+/lib
+/css
+/types
+.svelte-kit
+.routify
+dist
+client
+build
+*.svx

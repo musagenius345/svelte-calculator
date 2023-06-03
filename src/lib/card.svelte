@@ -14,9 +14,10 @@
   .card {
     background-color: #fff;
     color: #333;
+    font-size: 2.4rem;
     border-radius: 15px;
-    padding: 40px 50px;
-    margin: 20px 0;
+    padding: 4rem 5rem;
+    margin: 3.2rem 0;
     position: relative;
   }
   
