@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Base -->
+  <rect x="50" y="50" width="100" height="100" fill="#ccc" />
+
+  <!-- Exponent -->
+  <rect x="180" y="30" width="60" height="60" fill="#ccc" />
+  <text x="195" y="80" fill="#000" font-family="Arial" font-size="24" text-anchor="middle">2</text>
+
+  <!-- Exponent Label -->
+  <text x="210" y="20" fill="#000" font-family="Arial" font-size="16" text-anchor="middle">Exponent</text>
+</svg>
