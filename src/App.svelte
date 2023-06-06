@@ -7,18 +7,12 @@
 
 <main class="container">
   <Display />
-  <div class="numpad">
-    <Numbers />
-    <Operation />
-  </div>
+  <Numbers />
 
 
 
 
 </main>
 <style>
-  .numpad{
-    display: grid;
-    /* grid-template-columns: ; */
-  }
+  
 </style>

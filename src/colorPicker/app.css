@@ -1,5 +1,6 @@
 :root {
-  --transparency: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill-opacity=".05"><rect width="50" height="50" /><rect x="50" y="50" width="50" height="50" /></svg>') 0 0 / 20px 20px #f8f8f8;
+  --transparency: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill-opacity=".05"><rect width="50" height="50" /><rect x="50" y="50" width="50" height="50" /></svg>')
+    0 0 / 20px 20px #f8f8f8;
 }
 
 body {
@@ -14,25 +15,25 @@ body {
   background: var(--transparency);
 }
 
-input[type=number]::-webkit-inner-spin-button {
-  opacity: .5;
-  transform: translateX(.1em);
+input[type="number"]::-webkit-inner-spin-button {
+  opacity: 0.5;
+  transform: translateX(0.1em);
 }
 
 header {
   align-items: center;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
   line-height: 1;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 
 header select {
-  max-width: calc(100% - .2em);
+  max-width: calc(100% - 0.2em);
   box-sizing: content-box;
   padding: 0;
-  border: .1em solid hsl(220 10% 60%);
-  border-radius: .2em;
-  margin-bottom: .2em;
+  border: 0.1em solid hsl(220 10% 60%);
+  border-radius: 0.2em;
+  margin-bottom: 0.2em;
   font: inherit;
   color: inherit;
   background: none;
@@ -41,22 +42,22 @@ header select {
 }
 
 header button {
-  vertical-align: .4em;
+  vertical-align: 0.4em;
 }
 
 main {
   padding: 1.5em;
-  border-radius: .5em;
+  border-radius: 0.5em;
   width: 40em;
   max-width: 90vw;
   margin: 1em auto;
   background: #f0f0f0;
-  box-shadow: .05em .05em .1em rgba(0, 0, 0, .2), 0 0 0 100vmax var(--color);
+  box-shadow: 0.05em 0.05em 0.1em rgba(0, 0, 0, 0.2), 0 0 0 100vmax var(--color);
 }
 
 fieldset {
   border: 1px solid hsl(220 10% 80%);
-  border-radius: .3em;
+  border-radius: 0.3em;
   margin: 0;
   margin-top: 1em;
 }
@@ -69,7 +70,7 @@ details summary {
   font-size: smaller;
   margin-top: 1em;
   font-weight: bold;
-  color: rgba(0, 0, 0, .5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 abbr {
@@ -84,7 +85,7 @@ abbr {
   -webkit-appearance: none;
   background: linear-gradient(to right, var(--stops)), var(--transparency);
   height: 2.2em;
-  border-radius: .3em;
+  border-radius: 0.3em;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -92,7 +93,7 @@ abbr {
   width: 1em;
   height: 2.3em;
   -webkit-appearance: none;
-  border-radius: .15em;
+  border-radius: 0.15em;
   border: 1px solid black;
   box-shadow: 0 0 0 1px white;
 }
@@ -100,7 +101,7 @@ abbr {
 .color-slider::-moz-range-thumb {
   width: 1em;
   height: 2.3em;
-  border-radius: .15em;
+  border-radius: 0.15em;
   border: 1px solid black;
   box-shadow: 0 0 0 1px white;
   background: transparent;
@@ -114,37 +115,37 @@ abbr {
   position: relative;
 }
 
-.color-slider+input[type=number] {
+.color-slider + input[type="number"] {
   position: absolute;
   margin-top: -4em;
   left: calc(100% * var(--percentage));
   transform: translateX(-50%);
-  padding: .2em .5em;
+  padding: 0.2em 0.5em;
   width: 3em;
   border: 0;
-  border-radius: .3em;
+  border-radius: 0.3em;
   text-align: center;
   color: white;
-  background: rgba(0, 0, 0, .8);
+  background: rgba(0, 0, 0, 0.8);
   font: inherit;
   font-size: 120%;
-  transition: .3s left cubic-bezier(.17, .67, .49, 1.48);
+  transition: 0.3s left cubic-bezier(0.17, 0.67, 0.49, 1.48);
 }
 
 /* Prevent input from moving all over the place as we type */
-.color-slider+input[type=number]:focus {
-  transition-delay: .5s;
+.color-slider + input[type="number"]:focus {
+  transition-delay: 0.5s;
 }
 
-label:not(:focus-within):not(:hover)>.color-slider+input[type=number] {
+label:not(:focus-within):not(:hover) > .color-slider + input[type="number"] {
   display: none;
 }
 
 input.color-css,
 input.color-srgb {
-  padding: .3em .5em .2em;
+  padding: 0.3em 0.5em 0.2em;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: .3em;
+  border-radius: 0.3em;
   box-shadow: 0 0.05em 0.2em rgba(0, 0, 0, 0.2) inset;
   background: rgba(26, 26, 26, 0.05);
   width: 100% !important;
@@ -157,7 +158,7 @@ input.color-srgb {
 }
 
 .out-of-gamut-warning {
-  margin-top: .4em;
+  margin-top: 0.4em;
   color: #b00;
   font-weight: bold;
   font-size: smaller;
@@ -173,18 +174,18 @@ label:not(.out-of-gamut) .out-of-gamut-warning {
   display: none;
 }
 
-main>footer {
-  background: rgba(0, 0, 30, .05);
+main > footer {
+  background: rgba(0, 0, 30, 0.05);
   padding: inherit;
   padding-top: 1rem;
   padding-bottom: 1rem;
   margin: -1.5rem;
   margin-top: 1rem;
-  color: rgba(0, 0, 30, .6);
+  color: rgba(0, 0, 30, 0.6);
   font-size: smaller;
 }
 
-main>footer a {
+main > footer a {
   color: inherit;
   font-weight: bold;
 }
@@ -195,18 +196,18 @@ h2 {
 }
 
 button {
-  padding: .4em .6em;
+  padding: 0.4em 0.6em;
   border: 0;
-  margin: 0 .5em;
-  background: rgba(0, 0, 0, .15);
-  border-radius: .3em;
+  margin: 0 0.5em;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 0.3em;
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
 }
 
 h2 button:hover {
-  background: rgba(0, 0, 0, .25);
+  background: rgba(0, 0, 0, 0.25);
 }
 
 h2 .clear {

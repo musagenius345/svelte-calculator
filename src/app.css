@@ -5,11 +5,9 @@
 }
 
 :root {
-
   --width: 75px;
   --height: 60px;
-  --large: calc(var(--width)*2);
-
+  --large: calc(var(--width) * 2);
 
   --border-radius: 5px 5px 14px 14px;
 
@@ -17,30 +15,18 @@
   --btn-orange-bg: lch(67.4 54.4 59);
   --btn-orange-top: lch(69.3 36.4 58);
 
-
-  --btn-dark-clr: lch(89.9 0.0 0);
-  --btn-dark-bg: lch(17.0 5.0 276);
+  --btn-dark-clr: lch(89.9 0 0);
+  --btn-dark-bg: lch(17 5 276);
   --btn-dark-top: lch(26.8 5.2 287);
 
-  --btn-setting-clr: lch(1.0 3.4 26);
+  --btn-setting-clr: lch(1 3.4 26);
   --btn-setting-bg: lch(81.1 75.5 83);
   --btn-setting-top: lch(81.4 55.2 94);
 
-
-
-
-  --btn-gray-clr: lch(98.6 0.0 90);
+  --btn-gray-clr: lch(98.6 0 90);
   --btn-gray-bg: lch(33.5 3.3 306);
   --btn-gray-top: lch(49.7 4.3 307);
-
-
-  --btn-clr: var(--btn-dark-clr);
-  --btn-bg: var(--btn-dark-bg);
-  --btn-top: var(--btn-dark-top);
-
-
 }
-
 
 html {
   font-size: 62.5%;
@@ -48,24 +34,23 @@ html {
   padding: 0;
 }
 
-
 body {
   font-size: 1.6rem;
 }
 
-
-
-
 .container {
-  padding: 1.5em;
-  border-radius: .5em;
-  width: 40em;
-  max-width: 90vw;
-  min-height: 100vmax;
+  padding: 0.5em;
+  border-radius: 1.4rem;
+  width: 80rem;
+  max-width: 100%;
+  /* min-height: 100vmax; */
   margin: 1em auto;
 
   opacity: 1;
-  background-image: radial-gradient(lch(1.4 0.8 272) 0.8px, lch(8.5 2.9 250) 2.8px);
+  background-image: radial-gradient(
+    lch(1.4 0.8 272) 0.8px,
+    lch(8.5 2.9 250) 2.8px
+  );
   background-size: 16px 16px;
   /* box-shadow: .05em .05em .1em rgba(0, 0, 0, .2), 0 0 0 100vmax var(--color); */
 }

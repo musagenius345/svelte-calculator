@@ -1,0 +1,7 @@
+node_modules
+color.js
+svelte.config.js
+jsconfig.json
+vite.config.js
+src/vite.env.d.ts
+.vscode

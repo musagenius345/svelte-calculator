@@ -1,9 +1,23 @@
 <script>
-  let isdisabled = false;
+  export let isdisabled = false;
+  export let dark = true;
+  export let orange = false;
+  export let gray = false;
+  export let setting = false;
+  export let largeBtn = false;
 </script>
 
 
-<button type="button" disabled={isdisabled} aria-label="button">
+<button 
+  type="button" 
+  disabled={isdisabled} 
+  aria-label="button"
+  class:dark
+  class:orange
+  class:setting
+  class:gray
+  class:largeBtn
+  >
 
   <slot />
 
@@ -40,6 +54,11 @@
 
 
 
+  .dark {
+    background-color: var(--btn-dark-bg);
+    color: var(--btn-dark-clr);
+    border-top: 1.5px solid var(--btn-dark-top);
+  }
   .orange {
     background-color: var(--btn-orange-bg);
     color: var(--btn-orange-clr);
@@ -62,13 +81,10 @@
     border-top: 1px solid var(--btn-setting-top);
   }
 
-  .dark {
-    background-color: var(--btn-dark-bg);
-    color: var(--btn-dark-clr);
-    border-top: 1.5px solid var(--btn-dark-top);
-  }
 
-  .largeButton {
+  .largeBtn {
     width: var(--large);
+    grid-column: span 2;
+    margin-inline: auto;
   }
 </style>
