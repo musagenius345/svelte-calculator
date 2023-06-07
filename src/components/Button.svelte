@@ -1,29 +1,32 @@
 <script>
-  export let isdisabled = false;
-  export let dark = true;
-  export let orange = false;
-  export let gray = false;
-  export let setting = false;
-  export let largeBtn = false;
+  import { createEventDispatcher } from 'svelte'
+  
+  
+  
+  
+  export let isdisabled = false
+  export let dark = true
+  export let orange = false
+  export let gray = false
+  export let setting = false
+  export let largeBtn = false
+
+
+
+  const dispatch = createEventDispatcher();
+
+  export let value = '';
+
+  function handleClick() {
+    dispatch('buttonClicked', value);
+  }
 </script>
-
-
-<button 
-  type="button" 
-  disabled={isdisabled} 
-  aria-label="button"
-  class:dark
-  class:orange
-  class:setting
-  class:gray
-  class:largeBtn
-  >
-
+<!--  -->
+<button type="button" disabled={isdisabled} aria-label="button" class:dark class:orange class:setting class:gray class:largeBtn value>
   <slot />
-
 </button>
 
-<style>
+<style lang="scss">
   button {
     all: unset;
 
@@ -38,49 +41,73 @@
     height: var(--height);
     text-align: center;
 
-    
-    
     color: var(--btn-clr);
     background-color: var(--btn-bg);
     border-top: 1.5px solid var(--btn-top);
-    
+    margin-block-end: 2rem;
+    margin-inline-end: 1.8rem;
+
+    transition: all;
+
+
+    &:hover,
+    &:focus {
+      transform: scale(1.1);
+    }
 
   }
-
-  :global(button:not(:last-child, .equal)) {
-    margin-block-end: 1.5rem;
-    margin-inline-end: 1.5rem;
-  }
-
 
 
   .dark {
     background-color: var(--btn-dark-bg);
     color: var(--btn-dark-clr);
     border-top: 1.5px solid var(--btn-dark-top);
+
+
+    &:hover,
+    &:focus {
+      background-color: var(--btn-dark-bg-hov);
+
+    }
   }
+
   .orange {
     background-color: var(--btn-orange-bg);
     color: var(--btn-orange-clr);
     border-top: 1px solid var(--btn-orange-top);
 
-    filter: drop-shadow(1px 1px 3px lch(28.9 25.4 47));
+    /* filter: drop-shadow(1px 1px 3px lch(28.9 25.4 47)); */
 
+    &:hover,
+    &:focus {
+      background-color: var(--btn-orange-bg-hov);
+
+    }
   }
-
 
   .gray {
     background-color: var(--btn-gray-bg);
     color: var(--btn-gray-clr);
     border-top: 1px solid var(--btn-gray-top);
+
+    &:hover,
+    &:focus {
+      background-color: var(--btn-gray-bg-hov);
+
+    }
   }
 
   .setting {
     background-color: var(--btn-setting-bg);
     color: var(--btn-setting-clr);
     border-top: 1px solid var(--btn-setting-top);
-  }
 
+    &:hover,
+    &:focus {
+      background-color: var(--btn-setting-bg-hov);
+
+    }
+  }
 
   .largeBtn {
     width: var(--large);

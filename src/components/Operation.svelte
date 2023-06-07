@@ -1,7 +1,7 @@
 <script>
-  import Button from './Button.svelte'
-  import OrangeButton from './buttons/OrangeButton.svelte'
-  import DeleteIcon from '../assets/delete.svg'
+  import Button from "./Button.svelte"
+  import OrangeButton from "./buttons/OrangeButton.svelte"
+  import DeleteIcon from "../assets/delete.svg"
   import {
     atan2,
     chain,
@@ -12,21 +12,15 @@
     pi,
     pow,
     round,
-    sqrt
-  } from 'mathjs'
-  const firstRowOperation = ['Del', 'AC']
-  const secondRowOperation = ['<-', '->']
-  const thirdRowOperation = ['Exp', 'Ans']
-  const fourthRowOperation = ['=']
+    sqrt,
+  } from "mathjs"
+  const firstRowOperation = ["Del", "AC"]
+  const secondRowOperation = ["<-", "->"]
+  const thirdRowOperation = ["Exp", "Ans"]
+  const fourthRowOperation = ["="]
 </script>
 
-<div class="right-keys">
-
-
-
-</div>
-
-
+<div class="right-keys" />
 
 <style>
   .right-keys {
@@ -35,6 +29,5 @@
     align-items: center;
     flex-direction: column;
     /* gap: .7em; */
-
   }
 </style>

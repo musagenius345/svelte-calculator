@@ -1,17 +1,17 @@
 <script>
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte"
 
-  import Color from '../../color.js';
+  import Color from "../../color.js"
 
-  let css_color;
-  let serialized_color;
-  let serialized_color_srgb;
-  let serialized_color_srgb_oog;
-  let color_spaces = Color.Space.all;
-  let spaceId = 'lch';
-  let coords = [50, 50, 50];
-  let alpha = 100;
-  let precision = 3;
+  let css_color
+  let serialized_color
+  let serialized_color_srgb
+  let serialized_color_srgb_oog
+  let color_spaces = Color.Space.all
+  let spaceId = "lch"
+  let coords = [50, 50, 50]
+  let alpha = 100
+  let precision = 3
 
   let coord_meta = []
   let slider_steps = []
@@ -43,24 +43,25 @@
   // }
 
   function CSS_color_to_LCH() {
-    let str = prompt('Enter any CSS color');
+    let str = prompt("Enter any CSS color")
     if (str) {
       try {
-        let color = new Color(str);
-        let converted = color.to(spaceId);
-        coords = converted.coords;
-        alpha = converted.alpha * 100;
-        updateColor();
+        let color = new Color(str)
+        let converted = color.to(spaceId)
+        coords = converted.coords
+        alpha = converted.alpha * 100
+        updateColor()
       } catch (e) {
-        alert(e.message);
+        alert(e.message)
       }
     }
   }
 
-  let color;
-</script> 
+  let color
+</script>
 
-<main> <!--  style="--color: {css_color}" -->
+<main>
+  <!--  style="--color: {css_color}" -->
   <header>
     <h1>
       <select bind:value={spaceId}>
@@ -100,14 +101,9 @@
 
   <label class="color-slider-label">
     Alpha (0-100)
-    <input
-      class="color-slider"
-      type="range"
-      bind:value={alpha}
-      
-    />
+    <input class="color-slider" type="range" bind:value={alpha} />
     <!-- style="--stops: {slider_steps[coord_meta.length]} -->
-    <input type="number" class="autosize" bind:value={alpha}  max="100" />
+    <input type="number" class="autosize" bind:value={alpha} max="100" />
     <!-- style="--percentage: {alpha / 100}" -->
   </label>
 
@@ -115,7 +111,8 @@
     <legend>
       Output
       <span class="precision autosize">
-        (<input type="number" bind:value={precision} min="0" max="20" /> significant digits)
+        (<input type="number" bind:value={precision} min="0" max="20" /> significant
+        digits)
       </span>
     </legend>
     <label>
@@ -132,7 +129,8 @@
       <abbr>sRGB</abbr> Color
       <input class="color-srgb" value={serialized_color_srgb} readonly />
       <div class="out-of-gamut-warning">
-        Color is actually {serialized_color_srgb_oog}, which is out of sRGB gamut; auto-corrected to sRGB boundary.
+        Color is actually {serialized_color_srgb_oog}, which is out of sRGB
+        gamut; auto-corrected to sRGB boundary.
       </div>
     </label>
   </fieldset>

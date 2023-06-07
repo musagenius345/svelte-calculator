@@ -1,18 +1,30 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
+  import {evaluate} from 'mathjs'
+  let inputValue = ''
+  let result = math.evaluate(inputValue)
   
- const calc = () => console.log('input')
- const value = 5+2
-
+  function handleInput(e) {
+    inputValue = e.target.value;
+    result = math.evaluate(inputValue)
+    dispatch('inputValueUpdated', inputValue);
+  }
 </script>
 
-
-
-  <form class="wrapper" on:input={calc}>
-    <div class="screen-display">
-      <input id="arithmetic" type="number" class="" aria-placeholder="Arithmetic" placeholder="5+2">
-      <output name="result" for="arithmetic" placeholder="Results">{value}</output>
-    </div>
-  </form>
+<form class="wrapper">
+  <div class="screen-display">
+    <input
+      id="arithmetic"
+      type="number"
+      class=""
+      bind:value={inputValue}
+      on:input={handleInput}
+      placeholder="0"
+    />
+    <output name="result" for="arithmetic" placeholder="Results">{result}</output>
+    <input type="checkbox" name="hello" id="hello">
+  </div>
+</form>
 
 <style>
   .wrapper {
@@ -20,61 +32,54 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    
+
     font-size: 2.7rem;
-    
+
     margin-block-end: 1.8rem;
   }
-  
-  ::selection{
+
+  ::selection {
     color: lch(89.4 5.7 194);
     background-color: #000000;
   }
-  
+
   .screen-display {
     width: 100%;
     min-height: 40vh;
-  
     outline: none;
     border: none;
-  
+
     border-radius: 12px;
     background-color: lch(89.4 5.7 194);
-  
-  
+
     display: flex;
     flex-direction: column;
     /* align-items: center; */
     justify-content: space-between;
     gap: 1.2rem;
-  
   }
-  
-  .wrapper {}
-  
+
+  .wrapper {
+  }
+
   input {
     font-size: 3.2rem;
     background: transparent;
     border: 0;
     outline: 0;
-  
+
     align-self: flex-start;
-  
+
     margin-inline-start: 1.8em;
-    margin-block-start: .8em;
-  
-  
-  
+    margin-block-start: 0.8em;
   }
-  
-  
+
   output {
     all: unset;
     justify-self: flex-end;
     align-self: flex-end;
-  
+
     margin-inline-end: 1.8em;
-    margin-block-end: .8em;
+    margin-block-end: 0.8em;
   }
-  
 </style>

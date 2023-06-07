@@ -13,18 +13,22 @@
 
   --btn-orange-clr: lch(0.1 0.6 19);
   --btn-orange-bg: lch(67.4 54.4 59);
+  --btn-orange-bg-hov: lch(57 54.4 59);
   --btn-orange-top: lch(69.3 36.4 58);
 
   --btn-dark-clr: lch(89.9 0 0);
   --btn-dark-bg: lch(17 5 276);
+  --btn-dark-bg-hov: lch(14 5 276);
   --btn-dark-top: lch(26.8 5.2 287);
 
   --btn-setting-clr: lch(1 3.4 26);
   --btn-setting-bg: lch(81.1 75.5 83);
+  --btn-setting-bg-hov: lch(72 75.5 83);
   --btn-setting-top: lch(81.4 55.2 94);
 
   --btn-gray-clr: lch(98.6 0 90);
   --btn-gray-bg: lch(33.5 3.3 306);
+  --btn-gray-bg-hov: lch(29 3.3 306);
   --btn-gray-top: lch(49.7 4.3 307);
 }
 
