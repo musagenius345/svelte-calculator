@@ -1,9 +1,4 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
-  
-  
-  
-  
   export let isdisabled = false
   export let dark = true
   export let orange = false
@@ -12,14 +7,6 @@
   export let largeBtn = false
 
 
-
-  const dispatch = createEventDispatcher();
-
-  export let value = '';
-
-  function handleClick() {
-    dispatch('buttonClicked', value);
-  }
 </script>
 <!--  -->
 <button type="button" disabled={isdisabled} aria-label="button" class:dark class:orange class:setting class:gray class:largeBtn value>
@@ -52,7 +39,7 @@
 
     &:hover,
     &:focus {
-      transform: scale(1.1);
+      transform: translateY(3px);
     }
 
   }

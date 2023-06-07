@@ -1,14 +1,5 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
-  import {evaluate} from 'mathjs'
-  let inputValue = ''
-  let result = math.evaluate(inputValue)
   
-  function handleInput(e) {
-    inputValue = e.target.value;
-    result = math.evaluate(inputValue)
-    dispatch('inputValueUpdated', inputValue);
-  }
 </script>
 
 <form class="wrapper">
@@ -17,12 +8,9 @@
       id="arithmetic"
       type="number"
       class=""
-      bind:value={inputValue}
-      on:input={handleInput}
       placeholder="0"
     />
-    <output name="result" for="arithmetic" placeholder="Results">{result}</output>
-    <input type="checkbox" name="hello" id="hello">
+    <output name="result" for="arithmetic" placeholder="Results">Ans</output>
   </div>
 </form>
 
