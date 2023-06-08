@@ -1,7 +1,8 @@
 <script>
+  import { evaluate } from 'mathjs'
   import Numbers from './Numbers.svelte'
   import Button from "./Button.svelte"
-
+  
   
   let total = 0
   let numberInput = ''
