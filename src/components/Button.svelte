@@ -1,14 +1,17 @@
 <script>
+  import Button from './Button.svelte'
   export let isdisabled = false
   export let dark = true
   export let orange = false
   export let gray = false
   export let setting = false
   export let largeBtn = false
+  
+  
+  
 
 
 </script>
-<!--  -->
 <button type="button" disabled={isdisabled} aria-label="button" class:dark class:orange class:setting class:gray class:largeBtn value>
   <slot />
 </button>

@@ -5,8 +5,8 @@
 }
 
 :root {
-  --width: 75px;
-  --height: 60px;
+  --width: 7.5rem;
+  --height: 6rem;
   --large: calc(var(--width) * 2);
 
   --border-radius: 5px 5px 14px 14px;
