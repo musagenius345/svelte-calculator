@@ -1,6 +1,5 @@
 <script>
   import { evaluate } from 'mathjs'
-  import Numbers from './Numbers.svelte'
   import Button from "./Button.svelte"
   
   
