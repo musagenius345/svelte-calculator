@@ -3,8 +3,8 @@
   import Button from "./Button.svelte"
   
   
-  let total = 0
-  let numberInput = ''
+  $: total = 0
+  $:numberInput = ''
   let autocomplete = false
 
 
@@ -19,9 +19,18 @@
     // fractionalClicked()
   }
   
+  //FIXIT
+  const equal = () => {
+    numberInput = total
+  }
+  const answer = () => {
+    numberInput = total
+  }
   
+  
+  //TODO Make it work
   const fractional = () =>{
-    total = fraction(numberInput)
+    numberInput = fraction(numberInput)
   }
   
 
@@ -29,7 +38,7 @@
     total = 0
     numberInput = ""
   }
-  
+  //FIXIT NEEDS ADDED FUNCTIONAL
   const del = () => {
     numberInput = numberInput.substring(-1).toString()
     
@@ -107,16 +116,16 @@
   <Button on:click={()=> addToInput('2')}>2</Button>
   <Button on:click={()=> addToInput('3')}>3</Button>
   <Button on:click={()=> addToInput(' - ')}>&minus;</Button>
-  <Button gray="true">Exp</Button>
-  <Button gray="true">Ans</Button>
-  <Button gray="true">S&lrhar;D</Button>
+  <Button gray="true" on:click={()=> addToInput('E')}>Exp</Button>
+  <Button gray="true" on:click={()=> answer()}>Ans</Button>
+  <Button gray="true" on:click={()=> fractional()}>S&lrhar;D</Button>
   <Button gray="true" on:click={()=> addToInput('(')}>&lpar;</Button>
   <Button gray="true" on:click={()=> addToInput(')')}>&rpar;</Button>
   <Button on:click={()=> addToInput('%')}>&percnt;</Button>
   <Button on:click={()=> addToInput('0')}>0</Button>
   <Button on:click={()=> addToInput('.')}>&sdot;</Button>
   <Button on:click={()=> addToInput('+')}>&plus;</Button>
-  <Button gray="true" largeBtn="true">&equals;</Button>
+  <Button gray="true" largeBtn="true" on:click={()=> equal()}>&equals;</Button>
 </div>
 <style>
   .numpad {
