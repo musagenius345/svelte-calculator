@@ -12,7 +12,7 @@
 
 
 </script>
-<button type="button" disabled={isdisabled} aria-label="button" class:dark class:orange class:setting class:gray class:largeBtn value>
+<button type="button" disabled={isdisabled} aria-label="button" class:dark class:orange class:setting class:gray class:largeBtn on:click>
   <slot />
 </button>
 
@@ -104,4 +104,7 @@
     grid-column: span 2;
     margin-inline: auto;
   }
+  
+  
+  
 </style>

@@ -6,37 +6,29 @@
   let total = 0
   let numberInput = ''
 
-  // private function
+
   function addToInput(value) {
     numberInput += value
+    total = evaluate(numberInput)
   }
+  function inputManual(value) {
+    numberInput += value
+    total = evaluate(numberInput)
+  }
+  
+  
 
-  const clear = () => {
+  const clearInput = () => {
     total = 0
     numberInput = ""
   }
-
-  function calculate() {
-    if (numberInput !== "") {
-      numberInput = result().toString()
-    }
+  
+  const del = () => {
+    numberInput = numberInput.substring(-1).toString()
+    
   }
 
-  function replaceAll(string, search, replace) {
-    return string.split(search).join(replace);
-  }
 
-  function formatString(value) {
-    return replaceAll(replaceAll(value, "*", "x"), "/", "÷");
-  }
-
-  // computed
-  let result = () => {
-    if (!isNaN(numberInput.slice(-1))) {
-      return evaluate(numberInput)
-    }
-    return evaluate(numberInput.slice(0, -1))
-  }
 
 
 
@@ -51,23 +43,18 @@
 
   
 
-  $: if (
-    numberInput !== "" &&
-    !isNaN(numberInput.slice(-1)) &&
-    numberInput != result()
-  ) {
-    total = result().toString();
-  }
+  // $: if (
+  //   numberInput !== "" &&
+  //   !isNaN(numberInput.slice(-1)) &&
+  //   numberInput != result()
+  // ) {
+  //   total = result().toString();
+  // }
 </script>
 
 <div class="wrapper">
   <div class="screen-display">
-
-    <!-- type="number"
-    class=""
-    placeholder={numberInput}
-    value={numberInput} -->
-    <input id="arithmetic" bind:value={numberInput} />
+    <input id="arithmetic" type="text" on:input={inputManual} bind:value={numberInput} width="100"/>
     <output name="result" for="arithmetic" placeholder="Results">{total}</output>
   </div>
 </div>
@@ -79,20 +66,20 @@
       <circle cx="12" cy="12" r="3" />
       <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
     </svg></Button>
-  <Button gray="true">FACT</Button>
+  <Button gray="true" on:click={()=> addToInput('!')}>FACT</Button>
   <Button gray="true" on:click={()=> addToInput('^')}>a<sup style="margin-inline-start: .2em">b</sup></Button>
   <Button on:click={()=> addToInput('7')}>7</Button>
   <Button on:click={()=> addToInput('8')}>8</Button>
   <Button on:click={()=> addToInput('9')}>9</Button>
   <Button on:click={()=> addToInput('/')} >&divide;</Button>
-  <Button orange="true">
+  <Button orange="true" on:click={del}>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
       <line x1="18" y1="9" x2="12" y2="15" />
       <line x1="12" y1="9" x2="18" y2="15" />
     </svg>
   </Button>
-  <Button dark="false" orange="true">AC</Button>
+  <Button dark="false" orange="true" on:click={()=>clearInput()}>AC</Button>
   <Button gray="true">M&plus;</Button>
   <Button gray="true">M&minus;</Button>
   <Button gray="true"><svg id="ei4kL3yKbWI1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background-color:transparent; transform: translateY(-8px);">
@@ -127,7 +114,7 @@
 <style>
   .numpad {
     display: grid;
-    grid-template-columns: repeat(9, var(--width));
+    grid-template-columns: repeat(9,  minmax(var(--width), 12px));
     grid-template-rows: repeat(4, var(--height));
     gap: 1.3rem 1rem;
     margin: 0;
@@ -171,6 +158,7 @@
   .wrapper {}
 
   #arithmetic {
+    width: calc(93% - 1.8rem);
     font-size: 3.2rem;
     background: transparent;
     border: 0;
