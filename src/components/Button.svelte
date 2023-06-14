@@ -37,11 +37,10 @@
     margin-block-end: 2rem;
     margin-inline-end: 1.8rem;
 
-    transition: all;
+    transition: all 300ms;
 
 
-    &:hover,
-    &:focus {
+    &:hover {
       transform: translateY(3px);
     }
 

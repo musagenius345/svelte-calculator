@@ -5,6 +5,7 @@
   
   let total = 0
   let numberInput = ''
+  let autocomplete = false
 
 
   function addToInput(value) {
@@ -12,10 +13,16 @@
     total = evaluate(numberInput)
   }
   function inputManual(value) {
-    numberInput += value
+    numberInput += ''
     total = evaluate(numberInput)
+    
+    // fractionalClicked()
   }
   
+  
+  const fractional = () =>{
+    total = fraction(numberInput)
+  }
   
 
   const clearInput = () => {
@@ -54,7 +61,7 @@
 
 <div class="wrapper">
   <div class="screen-display">
-    <input id="arithmetic" type="text" on:input={inputManual} bind:value={numberInput} width="100"/>
+    <input id="arithmetic" type="text" autocomplete=off on:input={inputManual} bind:value={numberInput} width="100"/>
     <output name="result" for="arithmetic" placeholder="Results">{total}</output>
   </div>
 </div>
@@ -82,7 +89,7 @@
   <Button dark="false" orange="true" on:click={()=>clearInput()}>AC</Button>
   <Button gray="true">M&plus;</Button>
   <Button gray="true">M&minus;</Button>
-  <Button gray="true"><svg id="ei4kL3yKbWI1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background-color:transparent; transform: translateY(-8px);">
+  <Button gray="true" on:click={fractional}><svg id="ei4kL3yKbWI1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background-color:transparent; transform: translateY(-8px);">
       <rect width="30" height="30" rx="0" ry="0" transform="translate(136.15 105)" fill="#fff" stroke-width="0" />
       <rect width="30" height="30" rx="0" ry="0" transform="translate(136.149972 154.448797)" fill="#fff" stroke-width="0" />
       <line x1="-15" y1="0" x2="35" y2="0" transform="translate(141 144)" fill="#fff" stroke="#fff" stroke-width="3" />
@@ -99,7 +106,7 @@
   <Button on:click={()=> addToInput('1')}>1</Button>
   <Button on:click={()=> addToInput('2')}>2</Button>
   <Button on:click={()=> addToInput('3')}>3</Button>
-  <Button on:click={()=> addToInput('4')}>&minus;</Button>
+  <Button on:click={()=> addToInput(' - ')}>&minus;</Button>
   <Button gray="true">Exp</Button>
   <Button gray="true">Ans</Button>
   <Button gray="true">S&lrhar;D</Button>
