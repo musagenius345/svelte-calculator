@@ -1,10 +1,11 @@
 <script>
   import { evaluate } from 'mathjs'
   import Button from "./Button.svelte"
-  
-  
+
+
   $: total = 0
-  $:numberInput = ''
+  $: numberInput = ''
+  $: cursorPosition = 0
   let autocomplete = false
 
 
@@ -12,13 +13,29 @@
     numberInput += value
     total = evaluate(numberInput)
   }
+
   function inputManual(value) {
     numberInput += ''
     total = evaluate(numberInput)
-    
-    // fractionalClicked()
+
+
   }
-  
+
+
+  function moveCursorLeft() {
+    if (cursorPosition > 0) {
+      cursorPosition--;
+    }
+  }
+
+  function moveCursorRight() {
+    if (cursorPosition < inputValue.length) {
+      cursorPosition++;
+    }
+  }
+
+
+
   //FIXIT
   const equal = () => {
     numberInput = total
@@ -26,13 +43,13 @@
   const answer = () => {
     numberInput = total
   }
-  
-  
+
+
   //TODO Make it work
-  const fractional = () =>{
+  const fractional = () => {
     numberInput = fraction(numberInput)
   }
-  
+
 
   const clearInput = () => {
     total = 0
@@ -40,8 +57,8 @@
   }
   //FIXIT NEEDS ADDED FUNCTIONAL
   const del = () => {
-    numberInput = numberInput.substring(-1).toString()
-    
+    numberInput = numberInput.slice(0, -1)
+
   }
 
 
@@ -57,7 +74,7 @@
   // }
 
 
-  
+
 
   // $: if (
   //   numberInput !== "" &&
@@ -70,7 +87,7 @@
 
 <div class="wrapper">
   <div class="screen-display">
-    <input id="arithmetic" type="text" autocomplete=off on:input={inputManual} bind:value={numberInput} width="100"/>
+    <input id="arithmetic" type="text" autocomplete=off on:input={inputManual} bind:value={numberInput} width="100" bind:selectionStart={cursorPosition} bind:selectionEnd={cursorPosition} />
     <output name="result" for="arithmetic" placeholder="Results">{total}</output>
   </div>
 </div>
@@ -130,7 +147,7 @@
 <style>
   .numpad {
     display: grid;
-    grid-template-columns: repeat(9,  minmax(var(--width), 12px));
+    grid-template-columns: repeat(9, minmax(var(--width), 12px));
     grid-template-rows: repeat(4, var(--height));
     gap: 1.3rem 1rem;
     margin: 0;
