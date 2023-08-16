@@ -11,6 +11,7 @@
     "format": "prettier src/ --write --no-semi true bracket-new-line false --svelte-sort-order 'options-scripts-markup-styles'"
   },
   "devDependencies": {
+    "mathjs": "^11.9.1",
     "@sveltejs/vite-plugin-svelte": "^2.2.0",
     "carbon-components-svelte": "^0.74.0",
     "sass": "^1.62.1",
@@ -19,6 +20,6 @@
     "vite": "^4.3.2"
   },
   "dependencies": {
-    "mathjs": "^11.8.0"
+    "mathjs": "^11.9.1"
   }
 }
